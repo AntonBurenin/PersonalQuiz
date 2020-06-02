@@ -16,6 +16,7 @@ class ResultsViewController: UIViewController {
     // 4. Избавится от кнопки back
     @IBOutlet weak var emojiLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
     var answers: [Answer]!
     
     override func viewDidLoad() {
