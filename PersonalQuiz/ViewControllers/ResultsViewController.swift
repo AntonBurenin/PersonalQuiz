@@ -38,7 +38,7 @@ class ResultsViewController: UIViewController {
         for answer in answers {
             results[answer.type]! += 1
         }
-        let sortResults =  results.sorted(by: { $0.value > $1.value})
+        let sortResults =  results.sorted{ $0.value > $1.value }
         return sortResults.first!.key
     }
 }
