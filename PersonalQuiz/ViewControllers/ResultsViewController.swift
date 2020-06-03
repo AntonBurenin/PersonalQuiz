@@ -22,7 +22,7 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.hidesBackButton = true
+        navigationItem.hidesBackButton = true
         
         let resultAnimal = calculateResult()
         
@@ -35,8 +35,12 @@ class ResultsViewController: UIViewController {
     }
     
     private func calculateResult() -> AnimalType {
-        var results = [AnimalType.cat : 0, AnimalType.rabbit : 0, AnimalType.turtle : 0, AnimalType.dog : 0]
+        var results = [AnimalType : Int]()
         for answer in answers {
+            guard results[answer.type] != nil else {
+                results[answer.type] = 0
+                continue
+            }
             results[answer.type]! += 1
         }
         let sortResults =  results.sorted{ $0.value > $1.value }
