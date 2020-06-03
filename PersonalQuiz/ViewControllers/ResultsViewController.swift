@@ -44,6 +44,6 @@ class ResultsViewController: UIViewController {
             results[answer.type]! += 1
         }
         let sortResults =  results.sorted{ $0.value > $1.value }
-        return sortResults.first!.key
+        return sortResults.first == nil ? AnimalType.dog : sortResults.first!.key
     }
 }
